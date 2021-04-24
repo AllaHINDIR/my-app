@@ -29,8 +29,12 @@ function DiscussionsScreen({ navigation, route }) {
 function NewDiscussionScreen({ navigation, route}) {
   const idTheme = route.params.idTheme;
   const titreTheme = route.params.titreTheme;
+  const titre = route.params.titre;
+  const inputValue = route.params.inputValue;
+  const idDiscussion = route.params.idDiscussion;
+  const EnableBtn = route.params.EnableBtn;
   return (
-    <NewDiscussion navigation={navigation} idTheme={idTheme} titreTheme={titreTheme} idProfil={idprofil}/>
+    <NewDiscussion navigation={navigation} idTheme={idTheme} titreTheme={titreTheme} titre={titre} inputValue={inputValue} EnableBtn={EnableBtn} idDiscussion={idDiscussion} idProfil={idprofil}/>
   );
 }
 
@@ -46,7 +50,7 @@ function Forum() {
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="Themes">
         <Stack.Screen name="Themes" component={ThemesScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Replies" component={RepliesScreen} />
+        <Stack.Screen name="Replies" component={RepliesScreen} options={{ title: 'Reponses', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
         <Stack.Screen name="NewDiscussion" component={NewDiscussionScreen} options={{ title: 'Nouvelle Discussions', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
         <Stack.Screen name="Discussions" component={DiscussionsScreen} options={{ title: 'Discussions', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
       </Stack.Navigator>

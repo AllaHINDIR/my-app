@@ -16,19 +16,22 @@ function Discussions(props) {
   const idProfil = props.idProfil;
   let Enable = false;
   const isFocused = useIsFocused();
+  
 
-  // //pour rafraichir la page : 
-  // const wait = (timeout) => {
-  //   return new Promise(resolve => setTimeout(resolve, timeout));
-  // }
-  // const [refreshing, setRefreshing] = React.useState(false);
+  //pour rafraichir la page : 
+  const wait = (timeout) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  }
+  const [refreshing, setRefreshing] = React.useState(false);
 
-  // const onRefresh = React.useCallback(() => {
-  //   setRefreshing(true);
-  //   wait(100).then(() => setRefreshing(false));
-  //refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-  // }, []);
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(100).then(() => {
+      setRefreshing(false);
+    });
+  }, []);
 
+  //pour la récupération des donnés
   let url = props.url + 'topics/themes/' + idTheme; 
   const [listDiscussions, setListDiscussions] = useState([]);
   
@@ -43,19 +46,10 @@ function Discussions(props) {
       console.log(erreur)
     })
 
-  },[isFocused]);
+  },[isFocused,refreshing]);
 
 
-//  if (listDiscussions != []) {
-//    console.log(listDiscussions);
-//    console.log(listDiscussions[0].title)
-//    console.log(listDiscussions[0].creator)
-//    console.log(listDiscussions[0].creator.lastName)
-//  }
-
-
-
-  
+ //pour construire la liste des discussions
   for (let i = 0; i < listDiscussions.length; i++) {
     if (listDiscussions[i].creator._id == idProfil) {
       Enable = true;
@@ -63,7 +57,7 @@ function Discussions(props) {
       Enable = false;
     }
     ensDis.push(
-      <Discussion enable={Enable} titre={listDiscussions[i].title} description={listDiscussions[i].message} url={listDiscussions[i].creator.image} nom={listDiscussions[i].creator.lastName} prenom={listDiscussions[i].creator.firstName} date={listDiscussions[i].dateCreation} /*heure={listDiscussions[i].} */ reponse={0}/**/ navigation={props.navigation} id={listDiscussions[i]._id} />
+      <Discussion enable={Enable} titre={listDiscussions[i].title} description={listDiscussions[i].message} url={listDiscussions[i].creator.imagePath} nom={listDiscussions[i].creator.lastName} prenom={listDiscussions[i].creator.firstName} date={listDiscussions[i].dateCreation} /*heure={listDiscussions[i].} */ reponse={0}/**/ navigation={props.navigation} id={listDiscussions[i]._id} key={i} idTheme={idTheme} titreTheme={titreTheme}/>
     )
   }
 
@@ -71,7 +65,7 @@ function Discussions(props) {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'black' }}>
       <Heading> {titreTheme}</Heading>
 
-      <ScrollView >
+      <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
           <SBar />
         </View>
@@ -84,7 +78,7 @@ function Discussions(props) {
         buttonColor="gray"
         onPress={() => {
           console.log("nouvelle discussion")
-          props.navigation.navigate('NewDiscussion',{idTheme: props.idTheme, titreTheme: props.titreTheme})
+          props.navigation.navigate('NewDiscussion',{idTheme: props.idTheme, titreTheme: props.titreTheme,titre:"",inputValue:"",EnableBtn:false});
         }}
       />
     </View>

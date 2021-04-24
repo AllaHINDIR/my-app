@@ -66,6 +66,10 @@ const Discussion = (props) => {
               }}
               type="outline"
               raised
+              onPress={()=>{
+                props.navigation.navigate('NewDiscussion',{idTheme: props.idTheme, titreTheme: props.titreTheme,titre:props.titre,inputValue:props.description,idDiscussion:props.id,EnableBtn:true});
+              }
+              }
             />
           </View>
         </Display>
