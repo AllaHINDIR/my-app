@@ -17,6 +17,7 @@ function Discussions(props) {
   let Enable = false;
   const isFocused = useIsFocused();
   
+  
 
   //pour rafraichir la page : 
   const wait = (timeout) => {
@@ -40,7 +41,7 @@ function Discussions(props) {
     axios.get(url)
     .then((reponse) => {
       setListDiscussions(reponse.data);
-      console.log("executé !!! ");
+      console.log("executé !");
     })  
     .catch((erreur) => {
       console.log(erreur)
@@ -57,7 +58,16 @@ function Discussions(props) {
       Enable = false;
     }
     ensDis.push(
-      <Discussion enable={Enable} titre={listDiscussions[i].title} description={listDiscussions[i].message} url={listDiscussions[i].creator.imagePath} nom={listDiscussions[i].creator.lastName} prenom={listDiscussions[i].creator.firstName} date={listDiscussions[i].dateCreation} /*heure={listDiscussions[i].} */ reponse={0}/**/ navigation={props.navigation} id={listDiscussions[i]._id} key={i} idTheme={idTheme} titreTheme={titreTheme}/>
+      <Discussion
+        key={listDiscussions[i]._id}
+        navigation={props.navigation}
+        discussion={listDiscussions[i]}
+        idProfil={idProfil}
+        EnableReplay={true}
+        url={props.url}
+        idTheme={idTheme}
+        titreTheme={titreTheme} 
+        />
     )
   }
 

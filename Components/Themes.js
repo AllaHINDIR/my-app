@@ -41,7 +41,10 @@ const Themes = (props) => {
   let ensThemes = []
   for (let i = 0; i < listTheme.length; i++) {
     ensThemes.push(
-      <Theme url={listTheme[i].image} titre={listTheme[i].title} description={listTheme[i].description} navigation={props.navigation} key={i} id={listTheme[i]._id} />
+      <Theme
+        theme={listTheme[i]}
+        key={listTheme[i]._id}
+        navigation={props.navigation} />
     )
   }
   return (

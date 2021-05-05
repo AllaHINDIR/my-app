@@ -4,20 +4,30 @@ import { StyleSheet, Text, View, ImageBackground, Dimensions, TouchableNativeFee
 
 function Theme(props) {
 
+  const theme = props.theme
+
   return (
-    <TouchableNativeFeedback onPress={() => props.navigation.navigate('Discussions', {idTheme: props.id, titreTheme: props.titre})}>
-      <View style={styles.container}>
-        <ImageBackground imageStyle={styles.imageStyle} style={styles.imageDimensions} source={{ uri: props.url }}>
+    <View style={styles.container}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          props.navigation.navigate(
+            'Discussions',
+            {
+              idTheme: theme._id,
+              titreTheme: theme.title
+            })
+        }}>
+        <ImageBackground imageStyle={styles.imageStyle} style={styles.imageDimensions} source={{ uri: theme.image }}>
           <Text style={styles.baseText}>
             <Text style={styles.titleText}>
-              {props.titre}
+              {theme.title}
               {"\n"}
             </Text>
-            <Text> {props.description} </Text>
+            <Text> {theme.description} </Text>
           </Text>
         </ImageBackground>
-      </View>
-    </TouchableNativeFeedback>
+      </TouchableNativeFeedback>
+    </View>
   );
 }
 

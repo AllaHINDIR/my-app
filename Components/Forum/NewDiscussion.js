@@ -22,7 +22,7 @@ const NewDiscussion = (props) => {
 
     //pour inserer une nouvelle discussion
     function insertNouvelleDiscussion(titre,description) {
-            var url = "http://192.168.1.115:5000/topics";
+            var url = props.url + "topics";
 
             axios.post(url,{
                 title:titre,
@@ -50,7 +50,7 @@ const NewDiscussion = (props) => {
 
     //pour modifier le titre/description d'une discussion
     function modifierDiscussion(titre,description) {
-        var url = "http://192.168.1.115:5000/topics/" + props.idDiscussion;
+        var url = "http://192.168.1.115:5000/topics/" + props.idTopic;
 
         axios.put(url,{
             title:titre,
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
         height:50,
         borderWidth:2,
         borderRadius:8,
+        padding: 10
    
         
     },
@@ -165,7 +166,8 @@ const styles = StyleSheet.create({
         height:150,
         borderWidth:2,
         borderRadius:8,
-        textAlignVertical:"top"
+        textAlignVertical:"top",
+        padding: 10
         
     },
     titreTheme:{
