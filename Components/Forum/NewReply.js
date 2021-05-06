@@ -4,7 +4,6 @@ import { Divider, Button } from 'react-native-elements';
 import { showMessage } from "react-native-flash-message";
 import Display from 'react-native-display';
 import axios from 'axios';
-import Heading from './Heading'
 
 const NewReply = (props) => {
   const [inputValue, setInputValue] = useState(props.message)
@@ -29,7 +28,6 @@ function incrimenterReponse(){
 }
 
   function insertNouvelleReponse(contenu) {
-
     var url = props.url + "comments/";
     axios.post(url, {
       message: contenu,

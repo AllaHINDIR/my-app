@@ -5,11 +5,7 @@ import { showMessage } from "react-native-flash-message";
 import Display from 'react-native-display';
 import axios from 'axios';
 
-
-
-
 const NewDiscussion = (props) => {
-
     const idTheme = props.idTheme;
     const titreTheme = props.titreTheme;
     const idProfil = props.idProfil;
@@ -23,7 +19,6 @@ const NewDiscussion = (props) => {
     //pour inserer une nouvelle discussion
     function insertNouvelleDiscussion(titre,description) {
             var url = props.url + "topics";
-
             axios.post(url,{
                 title:titre,
                 message:description,
@@ -50,7 +45,7 @@ const NewDiscussion = (props) => {
 
     //pour modifier le titre/description d'une discussion
     function modifierDiscussion(titre,description) {
-        var url = "http://192.168.1.115:5000/topics/" + props.idTopic;
+        var url = props.url + "topics/" + props.idTopic;
 
         axios.put(url,{
             title:titre,

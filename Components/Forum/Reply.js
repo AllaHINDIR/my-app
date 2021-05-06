@@ -58,7 +58,7 @@ const Reply = (props) => {
         </View>
       </View >
 
-      <Divider style={{ backgroundColor: 'red' }} />
+      <Divider style={{ backgroundColor: 'teal' }} />
       <View>
         <Text style={styles.baseText}> {reply.message}</Text>
       </View>

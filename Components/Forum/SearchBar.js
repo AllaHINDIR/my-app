@@ -5,7 +5,9 @@ import { Searchbar } from 'react-native-paper';
 const SBar = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
-  const onChangeSearch = query => setSearchQuery(query);
+  function onChangeSearch(searchQuery){
+    setSearchQuery(searchQuery);
+  } 
 
   return (
     <Searchbar
@@ -15,6 +17,7 @@ const SBar = () => {
       placeholder="Chercher ici..."
       placeholderTextColor="#ffffff"
       onChangeText={onChangeSearch}
+      
       value={searchQuery}
 
     />

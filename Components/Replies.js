@@ -101,7 +101,7 @@ const Replies = (props) => {
         </View>
       </ScrollView>
       <ActionButton
-        buttonColor="gray"
+        buttonColor="teal"
         onPress={() => {
           props.navigation.navigate(
             'NewReply',
@@ -128,8 +128,13 @@ const styles = StyleSheet.create({
   },
   discussion:{
     borderWidth:  3,
+    borderTopWidth:  5,
+    borderBottomWidth:  5,
     borderRadius:10,
-    borderColor:  'teal'
+    backgroundColor: 'teal',
+    borderColor:  'teal',
+    borderRadius: 10,
+    marginVertical: 5,
   }
 });
 export default Replies

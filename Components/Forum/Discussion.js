@@ -61,7 +61,7 @@ const Discussion = (props) => {
         </View>
       </View>
 
-      <Divider style={{ backgroundColor: 'red' }} />
+      <Divider style={{ backgroundColor: 'teal' }} />
       <View>
         <Text style={styles.titleText}> {discussion.title}</Text>
         <Text style={styles.baseText}> {discussion.message}</Text>
