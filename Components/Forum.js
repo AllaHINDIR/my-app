@@ -8,7 +8,7 @@ import NewReply from './Forum/NewReply';
 import NewDiscussion from './Forum/NewDiscussion'
 
 
-const url = "http://192.168.1.11:5000/" //adresse ip du pc (localHost ne fonctionne pas);
+const url = "http://192.168.1.17:5000/" //adresse ip du pc (localHost ne fonctionne pas);
 const idprofil = "60679385a128f24090128c03";
 
 function ThemesScreen({ navigation }) {
