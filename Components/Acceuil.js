@@ -1,26 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     Image,
-    TextInput,
-    Button,
     TouchableOpacity,
 } from "react-native";
 
 const Acceuil = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
     return (
         <View style={styles.container}>
-
             <Image style={styles.image} source={require("../assets/logo_arram.jpg")} />
             <Image src="" />
             <StatusBar style="auto" />
-
             <TouchableOpacity style={styles.loginBtn}
                 onPress={() => {
                     props.navigation.replace('Login');
@@ -43,28 +37,6 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
 
-    inputView: {
-        backgroundColor: "#FFC0CB",
-        borderRadius: 30,
-        width: "70%",
-        height: 45,
-        marginBottom: 20,
-
-        alignItems: "center",
-    },
-
-    TextInput: {
-        height: 50,
-        flex: 1,
-        padding: 10,
-        marginLeft: 20,
-    },
-
-    forgot_button: {
-        height: 30,
-        marginBottom: 30,
-    },
-
     loginBtn: {
         width: "80%",
         borderRadius: 25,
@@ -72,7 +44,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#FF1493",
+        backgroundColor: "rgba(0,128,128,0.7)",
     },
 });
 

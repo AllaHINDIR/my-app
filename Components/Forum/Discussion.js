@@ -33,6 +33,12 @@ const Discussion = (props) => {
         message: 'La discussion a été supprimée',
         type: 'success',
       });
+      props.navigation.replace(
+        'Discussions',
+        {
+          idTheme: props.idTheme,
+          titreTheme: props.titreTheme
+        })
       
     }).catch((err)=>{
       console.log(err);

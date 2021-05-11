@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView, RefreshControl, View, Dimensions } from 'react-
 import ActionButton from 'react-native-action-button';
 import { useIsFocused } from "@react-navigation/native";
 import axios from 'axios';
-// import SBar from './Forum/SearchBar'
+
 import { Searchbar } from 'react-native-paper';
 import Discussion from './Forum/Discussion'
 import Heading from './Forum/Heading'

@@ -4,33 +4,47 @@ import {
     StyleSheet,
     Text,
     View,
-    Image,
     TextInput,
-    Button,
     TouchableOpacity,
 } from "react-native";
 
-const Login = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+import axios from 'axios';
 
+
+const Login = (props) => {
+    const [indicatif, setIndicatif] = useState("");
+    const [password, setPassword] = useState("");
+    const [idProfil, setIdProfil] = useState("");
+    const [loginSuccess, setLoginSuccess] = useState(false);
+    
+    function login(indicatif, password) {
+        var url = "http://192.168.1.12:5000/login";
+        axios.post(url, {
+            indicatif: indicatif,
+            password: password
+        }).then((reponse) => {
+            setIdProfil(reponse.data.memberId);
+            setLoginSuccess(true);
+        }).catch(err => {
+            console.log(err)
+        });
+    }
+    
     return (
         <View style={styles.container}>
-            
             <StatusBar style="auto" />
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.TextInput}
-                    placeholder="Email."
+                    placeholder="Indicatif"
                     placeholderTextColor="#003f5c"
-                    onChangeText={(email) => setEmail(email)}
+                    onChangeText={(email) => setIndicatif(email)}
                 />
             </View>
-
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.TextInput}
-                    placeholder="Password."
+                    placeholder="Password"
                     placeholderTextColor="#003f5c"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
@@ -43,7 +57,13 @@ const Login = (props) => {
 
             <TouchableOpacity style={styles.loginBtn}
                 onPress={() => {
-                    props.navigation.replace('MainApp');        
+                    login(indicatif, password);
+                    if (loginSuccess) {
+                        props.navigation.replace(
+                            'MainApp',
+                            { idProfil: idProfil }
+                        );
+                    }
                 }}>
                 <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
@@ -64,7 +84,7 @@ const styles = StyleSheet.create({
     },
 
     inputView: {
-        backgroundColor: "#FFC0CB",
+        backgroundColor: "rgba(0,128,128,0.3)",
         borderRadius: 30,
         width: "70%",
         height: 45,
@@ -92,7 +112,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#FF1493",
+        backgroundColor: "rgba(0,128,128,0.7)",
     },
 });
 

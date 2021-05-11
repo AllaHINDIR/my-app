@@ -4,9 +4,9 @@ import { useIsFocused } from "@react-navigation/native";
 import axios from 'axios';
 import { Searchbar } from 'react-native-paper';
 
-import Theme2 from './Forum/Theme2'
+import Theme from './Forum/Theme'
 import Heading from './Forum/Heading'
-// import SBar from './Forum/SearchBar'
+
 
 const Themes = (props) => {
   const isFocused = useIsFocused();
@@ -48,7 +48,7 @@ const Themes = (props) => {
   for (let i = 0; i < listTheme.length; i++) {
     if (listTheme[i].title.toUpperCase().includes(searchQuery.toUpperCase()) || listTheme[i].description.toUpperCase().includes(searchQuery.toUpperCase())) {
       ensThemes.push(
-        <Theme2
+        <Theme
           theme={listTheme[i]}
           key={listTheme[i]._id}
           navigation={props.navigation} />
@@ -61,7 +61,6 @@ const Themes = (props) => {
       <Heading>Themes</Heading>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
-          {/* <SBar /> */}
           <Searchbar
             style={styles.searchBar}
             inputStyle={styles.input}

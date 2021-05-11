@@ -37,6 +37,13 @@ const Reply = (props) => {
         })
         deleteSuccess = true;
         decrimentationReponse();
+        props.navigation.replace(
+          'Replies',
+          {
+            titreTheme: titreTheme,
+            discussion: discussion,
+            idTopic: idTopic
+          })
       }).catch((err) => {
         console.log(err)
       })

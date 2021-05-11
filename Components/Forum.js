@@ -6,92 +6,95 @@ import Replies from './Replies';
 import Themes from './Themes';
 import NewReply from './Forum/NewReply';
 import NewDiscussion from './Forum/NewDiscussion'
-
-
-const url = "http://192.168.1.17:5000/" //adresse ip du pc (localHost ne fonctionne pas);
-const idprofil = "60679385a128f24090128c03";
-
-function ThemesScreen({ navigation }) {
-  return (
-    <Themes
-      navigation={navigation}
-      url={url} />
-  );
-}
-function DiscussionsScreen({ navigation, route }) {
-  //route assure le passage des parametres 
-  const idTheme = route.params.idTheme;
-  const titreTheme = route.params.titreTheme;
-
-  return (
-    <Discussions
-      navigation={navigation}
-      idTheme={idTheme}
-      titreTheme={titreTheme}
-      idProfil={idprofil}
-      url={url} />
-  );
-}
-
-function NewDiscussionScreen({ navigation, route }) {
-  const idTheme = route.params.idTheme;
-  const titreTheme = route.params.titreTheme;
-  const titre = route.params.titre;
-  const inputValue = route.params.inputValue;
-
-  const EnableBtn = route.params.EnableBtn;
-  const idTopic = route.params.idTopic;
-  return (
-    <NewDiscussion
-      navigation={navigation}
-      url={url}
-      idTopic={idTopic}
-      idTheme={idTheme}
-      titreTheme={titreTheme}
-      titre={titre}
-      inputValue={inputValue}
-      EnableBtn={EnableBtn}
-      idProfil={idprofil} />
-  );
-}
-
-function RepliesScreen({ navigation, route }) {
-  const titreTheme = route.params.titreTheme;
-  const discussion = route.params.discussion;
-  const idTopic = route.params.idTopic;
-  //console.log(discussion)
-  return (
-    <Replies
-      navigation={navigation}
-      titreTheme={titreTheme}
-      url={url}
-      idTopic={idTopic}
-      idProfil={idprofil}
-      discussion={discussion} />
-  );
-}
-
-function NewReplyScreen({ navigation, route }) {
-  const titreTheme = route.params.titreTheme;
-  const discussion = route.params.discussion;
-  const message = route.params.message;
-  const id = route.params.id;
-  const EnableBtn = route.params.EnableBtn;
-  return (
-    <NewReply
-      navigation={navigation}
-      discussion={discussion}
-      titreTheme={titreTheme}
-      idProfil={idprofil}
-      message={message}
-      EnableBtn={EnableBtn}
-      id={id}
-      url={url} />
-  );
-}
+import FlashMessage from 'react-native-flash-message';
 
 const Stack = createStackNavigator();
-function Forum() {
+function Forum(props) {
+
+  const url = "http://192.168.1.12:5000/" //adresse ip du pc (localHost ne fonctionne pas);
+  const idprofil = props.idProfil;
+
+  function ThemesScreen({ navigation }) {
+    return (
+      <Themes
+        navigation={navigation}
+        url={url} />
+    );
+  }
+  function DiscussionsScreen({ navigation, route }) {
+    //route assure le passage des parametres 
+    const idTheme = route.params.idTheme;
+    const titreTheme = route.params.titreTheme;
+    return (
+      <Discussions
+        navigation={navigation}
+        idTheme={idTheme}
+        titreTheme={titreTheme}
+        idProfil={idprofil}
+        url={url} />
+    );
+  }
+
+  function NewDiscussionScreen({ navigation, route }) {
+    const idTheme = route.params.idTheme;
+    const titreTheme = route.params.titreTheme;
+    const titre = route.params.titre;
+    const inputValue = route.params.inputValue;
+
+    const EnableBtn = route.params.EnableBtn;
+    const idTopic = route.params.idTopic;
+    return (
+      <NewDiscussion
+        navigation={navigation}
+        url={url}
+        idTopic={idTopic}
+        idTheme={idTheme}
+        titreTheme={titreTheme}
+        titre={titre}
+        inputValue={inputValue}
+        EnableBtn={EnableBtn}
+        idProfil={idprofil} />
+    );
+  }
+
+  function RepliesScreen({ navigation, route }) {
+    const titreTheme = route.params.titreTheme;
+    const discussion = route.params.discussion;
+    const idTopic = route.params.idTopic;
+    //console.log(discussion)
+    return (
+      <Replies
+        navigation={navigation}
+        titreTheme={titreTheme}
+        url={url}
+        idTopic={idTopic}
+        idProfil={idprofil}
+        discussion={discussion} />
+    );
+  }
+
+  function NewReplyScreen({ navigation, route }) {
+    const titreTheme = route.params.titreTheme;
+    const discussion = route.params.discussion;
+    const message = route.params.message;
+    const id = route.params.id;
+    const EnableBtn = route.params.EnableBtn;
+    return (
+      <NewReply
+        navigation={navigation}
+        discussion={discussion}
+        titreTheme={titreTheme}
+        idProfil={idprofil}
+        message={message}
+        EnableBtn={EnableBtn}
+        id={id}
+        url={url} />
+    );
+  }
+
+
+
+  //console.log(props)
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="Themes">
