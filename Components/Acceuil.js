@@ -15,6 +15,13 @@ const Acceuil = (props) => {
             <Image style={styles.image} source={require("../assets/logo_arram.jpg")} />
             <Image src="" />
             <StatusBar style="auto" />
+            <View style={styles.description} >
+                <Text style={styles.textDescription} >
+                    Cette Application est réservée seulement pour les membres de l'association ARRAM !
+
+                </Text>
+            </View>
+
             <TouchableOpacity style={styles.loginBtn}
                 onPress={() => {
                     props.navigation.replace('Login');
@@ -38,14 +45,23 @@ const styles = StyleSheet.create({
     },
 
     loginBtn: {
-        width: "80%",
+        width: "60%",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "rgba(0,128,128,0.7)",
+        backgroundColor: "#e7ab3c",
     },
+    description:{
+        alignContent:"center",
+        marginHorizontal:50,
+        
+    },
+    textDescription:{
+        alignSelf:"center",
+        textAlign:"center",
+    }
 });
 
 export default Acceuil;

@@ -60,7 +60,7 @@ const Themes = (props) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Heading>Themes</Heading>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-        <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+        <View style={{ flex: 1, backgroundColor: '#111111', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
           <Searchbar
             style={styles.searchBar}
             inputStyle={styles.input}
@@ -84,6 +84,7 @@ const Themes = (props) => {
 const width = Dimensions.get('window').width; //full width
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     width: width,
     backgroundColor: '#000000',
     borderRadius: 0,

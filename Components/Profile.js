@@ -31,7 +31,7 @@ function Profile(props) {
   }, []);
 
   //Recuperation des données
-  let url = "http://192.168.1.12:5000/members/" + props.idProfil;
+  let url = props.url +  "members/" + props.idProfil;
   const [profil, setProfil] = useState([]);
   useEffect(() => {
     axios.get(url)
@@ -52,7 +52,7 @@ function Profile(props) {
 
         <View style={styles.container}>
           {/* <Image style={styles.image} source={profil.imagePath} /> */}
-          <Image style={styles.image} source={{ uri: "https://tse1.mm.bing.net/th?id=OIP.l-lh9fKhhEzl2hdauJWEYwHaHa&pid=Api&..." }} />
+          <Image style={styles.image} source={{ uri: profil.imagePath }} />
           <View style={styles.inputView}>
             <Text style={styles.TextView}> Prénom : {profil.firstName}</Text>
             <Text style={styles.TextView}> Nom : {profil.lastName}</Text>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   inputView: {
-    backgroundColor: "rgba(0,128,128,0.3)",
+    backgroundColor: "#FACB76",
     borderRadius: 10,
     borderColor: "black",
     borderWidth: 2,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: "black",
     borderWidth: 1,
-    fontSize: 20,
+    fontSize: 15,
     width: width - 100,
     backgroundColor: "white",
     margin: 3,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 20,
-    backgroundColor: "rgba(0,128,128,0.7)",
+    backgroundColor: "#e7ab3c",
   },
 });
 

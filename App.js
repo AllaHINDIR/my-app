@@ -4,10 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MyTabs from './Components/MyTabs';
 import FlashMessage from 'react-native-flash-message';
-import MainApp from './Components/MainApp'
 import Acceuil from './Components/Acceuil'
 import Login from './Components/Login'
-import { View } from 'native-base';
+
+
+const url="http://10.72.176.86:5000/";
+
 
 function AcceuilScreen({ navigation }) {
   return (
@@ -21,6 +23,7 @@ function LoginScreen({ navigation }) {
   return (
     <Login
       navigation={navigation}
+      url = {url}
     />
   );
 }
@@ -28,7 +31,7 @@ function LoginScreen({ navigation }) {
 function MainAppScreen({ navigation, route }) {
   const idProfil = route.params.idProfil;
   return (
-    <MyTabs idProfil={idProfil} navigation={navigation} />
+    <MyTabs idProfil={idProfil} navigation={navigation} url={url} />
   );
 }
 

@@ -29,7 +29,7 @@
     "react-native-action-button": "^2.8.5",
     "react-native-code-push": "^7.0.1",
     "react-native-display": "^1.0.8",
-    "react-native-elements": "^3.3.2",
+    "react-native-elements": "^3.4.1",
     "react-native-flash-message": "^0.1.23",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-input-scroll-view": "^1.11.0",
@@ -38,6 +38,7 @@
     "react-native-screens": "~2.15.2",
     "react-native-search-button-bar": "0.0.3",
     "react-native-svg": "12.1.0",
+    "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4"
   },

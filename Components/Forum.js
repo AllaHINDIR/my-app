@@ -11,7 +11,7 @@ import FlashMessage from 'react-native-flash-message';
 const Stack = createStackNavigator();
 function Forum(props) {
 
-  const url = "http://192.168.1.12:5000/" //adresse ip du pc (localHost ne fonctionne pas);
+  const url = props.url //adresse ip du pc (localHost ne fonctionne pas);
   const idprofil = props.idProfil;
 
   function ThemesScreen({ navigation }) {

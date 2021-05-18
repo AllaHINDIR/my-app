@@ -4,6 +4,7 @@ import Forum from './Forum'
 import Maps from './Map'
 import Profile from './Profile'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { useLinkProps } from '@react-navigation/native';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,7 +19,7 @@ function MyTabs(props) {
     >
       <Tab.Screen
         name="Forum"
-        children={() => <Forum idProfil={props.idProfil} />}
+        children={() => <Forum idProfil={props.idProfil} url = {props.url} />}
         options={{
           tabBarLabel: 'Forum',
           tabBarIcon: ({ color = activeTintColor, size = 20 }) => (
@@ -39,7 +40,7 @@ function MyTabs(props) {
       />
       <Tab.Screen
         name="Profile"
-        children={() => <Profile idProfil={props.idProfil} navigation={props.navigation}/>}
+        children={() => <Profile idProfil={props.idProfil} navigation={props.navigation} url = {props.url}/>}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size = 20 }) => (
