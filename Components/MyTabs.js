@@ -2,12 +2,12 @@ import * as React from 'react';
 import {Image} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Forum from './Forum'
-import Maps from './Map'
+import MapScreens from './carte/MapScreens'
 import Profile from './Profile'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { useLinkProps } from '@react-navigation/native';
+
 import axios from 'axios';
-import { Form } from 'native-base';
+
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -59,7 +59,7 @@ function MyTabs(props) {
       />
       <Tab.Screen
         name="Maps"
-        children={() => <Maps idProfil={props.idProfil} />}
+        children={() => <MapScreens url ={props.url} />}
         options={{
           tabBarLabel: 'Carte',
           tabBarIcon: ({ color, size = 25 }) => (
