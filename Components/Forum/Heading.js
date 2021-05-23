@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     textAlign: 'center',
-    fontSize: 40,
-    marginVertical: 10,
+    fontSize: 20,
+    marginVertical: 0,
     fontWeight: 'bold',
     color: '#ffffff',
   },

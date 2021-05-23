@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Image,TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Discussions from './Discussions';
@@ -7,6 +8,8 @@ import Themes from './Themes';
 import NewReply from './Forum/NewReply';
 import NewDiscussion from './Forum/NewDiscussion'
 import FlashMessage from 'react-native-flash-message';
+import axios from 'axios';
+import Profile from './Profile';
 
 const Stack = createStackNavigator();
 function Forum(props) {
@@ -93,6 +96,9 @@ function Forum(props) {
   }
 
 
+ 
+
+
 
   //console.log(props)
   return (
@@ -101,7 +107,7 @@ function Forum(props) {
         <Stack.Screen name="Themes" component={ThemesScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Replies" component={RepliesScreen} options={{ title: 'Reponses', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
         <Stack.Screen name="NewReply" component={NewReplyScreen} options={{ title: 'Nouvelle Réponse', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
-        <Stack.Screen name="NewDiscussion" component={NewDiscussionScreen} options={{ title: 'Nouvelle Discussions', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
+        <Stack.Screen name="NewDiscussion" component={NewDiscussionScreen} options={{ title: 'Nouvelle Discussion', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
         <Stack.Screen name="Discussions" component={DiscussionsScreen} options={{ title: 'Discussions', headerStyle: { backgroundColor: '#111111' }, headerTintColor: '#fff' }} />
       </Stack.Navigator>
     </NavigationContainer>
