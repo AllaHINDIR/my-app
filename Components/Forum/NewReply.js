@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TextInput, ScrollView, ImageBackground } from 'react-native';
 import { Divider, Button } from 'react-native-elements';
 import { showMessage } from "react-native-flash-message";
 import Display from 'react-native-display';
@@ -17,15 +17,15 @@ const NewReply = (props) => {
   const [Enable, setEnable] = useState(false);
   const EnableBtn = props.EnableBtn;
 
-function incrimenterReponse(){
-  const urlDiscussion = props.url + "topics/add/Comment/" + idTopic ;
-  axios.put(urlDiscussion, {})
-    .then((reponse) => {
-      console.log(reponse.data);
-    }).catch((err) => {
-      console.log(err)
-    })
-}
+  function incrimenterReponse() {
+    const urlDiscussion = props.url + "topics/add/Comment/" + idTopic;
+    axios.put(urlDiscussion, {})
+      .then((reponse) => {
+        console.log(reponse.data);
+      }).catch((err) => {
+        console.log(err)
+      })
+  }
 
   function insertNouvelleReponse(contenu) {
     var url = props.url + "comments/";
@@ -88,9 +88,9 @@ function incrimenterReponse(){
   }
 
   return (
-    <View style={styles.container}>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <View style={styles.discussion}>
-      <Text style={styles.titreTheme}> {titreTheme}</Text>
+        <Text style={styles.titreTheme}> {titreTheme}</Text>
         <Display enable={Enable}>
           <Text style={{ color: 'red', marginTop: -30, alignSelf: 'center' }}>
             {' '}
@@ -142,96 +142,55 @@ function incrimenterReponse(){
           </Display>
         </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 
 const width = Dimensions.get('window').width; //full width
 const styles = StyleSheet.create({
-  container: {
-    width: width,
-    backgroundColor: '#111111',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  reply: {
-    padding: 10,
-    width: width - 10,
-    backgroundColor: "#ffffff",
-    borderColor: "#000000",
-    borderRadius: 10,
-    marginVertical: 5,
-  },
-  baseText: {
-    fontSize: 16,
-    color: '#000000',
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: '#000000',
-  },
-  imageStyle: {
-    height: 48,
-    width: 48,
-    borderRadius: 24,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textStyle: {
-    textAlign: 'center',
-    fontSize: 40,
-    marginVertical: 15,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  DescriptionZone: {
-    height: 150,
-    borderWidth: 2,
-    borderRadius: 8,
-    textAlignVertical: "top",
-
-    padding: 10
-
-  },
-  container: {
-    width: width,
-    flex: 1,
-    backgroundColor: '#111111',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   discussion: {
     height: 400,
     padding: 10,
     width: width - 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255,255,255,0.5)",
     borderColor: "#000000",
     borderRadius: 10,
     marginVertical: 5,
   },
-  titleZone: {
-    height: 50,
-    borderWidth: 2,
-    borderRadius: 8,
-    padding: 10,
+    titleText: {
+      height: 50,
+      borderWidth: 2,
+      borderRadius: 8,
+      padding: 10,
+      fontSize: 16,
+      fontWeight: "bold",
+    },
 
-  },
-  DescriptionZone: {
-    height: 150,
-    borderWidth: 2,
-    borderRadius: 8,
-    textAlignVertical: "top",
-    padding: 10,
-  },
-  titreTheme: {
-    fontSize: 30,
-    alignSelf: 'center',
-    marginBottom: 30,
+    backgroundImage: {
+      flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center"
+    },
+    DescriptionZone: {
+      height: 150,
+      textAlignVertical: "top",
+      borderRadius: 8,
+      borderWidth: 2,
+      borderRadius: 8,
+      padding: 10,
+      backgroundColor: "rgba(255,255,255,0.9)",
 
-  }
+    },
+    ScrollViewDescription: {
+      height: 80,
+    },
+    titreTheme: {
+      fontSize: 30,
+      alignSelf: 'center',
+      marginBottom: 30,
+    }
 
-});
+
+  });
 
 export default NewReply

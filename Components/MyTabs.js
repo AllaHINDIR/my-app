@@ -41,8 +41,9 @@ function MyTabs(props) {
     <Tab.Navigator
       barStyle={{ backgroundColor: '#000000' }}
       initialRouteName="Forum"
+      activeColor = "#e7ab3c"
       tabBarOptions={{
-        activeTintColor: 'Teal',
+        activeTintColor: 'gray',
         
       }}
     >
@@ -51,7 +52,7 @@ function MyTabs(props) {
         children={() => <Forum idProfil={props.idProfil} url = {props.url} />}
         options={{
           tabBarLabel: 'Forum',
-          tabBarIcon: ({ color = activeTintColor, size = 25 }) => (
+          tabBarIcon: ({ color , size = 25 }) => (
             <MaterialCommunityIcons name="forum" color={color} size={size} />
           ),
         }}

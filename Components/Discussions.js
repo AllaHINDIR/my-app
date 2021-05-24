@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, RefreshControl, View, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, RefreshControl, View, Dimensions, ImageBackground } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import { useIsFocused } from "@react-navigation/native";
 import axios from 'axios';
@@ -73,8 +73,8 @@ function Discussions(props) {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Heading> {titreTheme}</Heading>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
+        <Heading> {titreTheme}</Heading>
 
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
@@ -95,13 +95,13 @@ function Discussions(props) {
 
       </ScrollView>
       <ActionButton
-        buttonColor="teal"
+        buttonColor="#e7ab3c"
         onPress={() => {
           console.log("nouvelle discussion")
           props.navigation.navigate('NewDiscussion', { idTheme: props.idTheme, titreTheme: props.titreTheme, titre: "", inputValue: "", EnableBtn: false });
         }}
       />
-    </View>
+    </ImageBackground>
   );
 
 };
@@ -125,6 +125,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  
   input: {
     color: "#ffffff",
   }

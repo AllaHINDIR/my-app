@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { StyleSheet, View, ScrollView, Dimensions, RefreshControl } from 'react-native';
+import { StyleSheet, View, ScrollView, Dimensions, RefreshControl, ImageBackground } from 'react-native';
 import { useIsFocused } from "@react-navigation/native";
 import axios from 'axios';
 import { Searchbar } from 'react-native-paper';
@@ -57,7 +57,7 @@ const Themes = (props) => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <Heading>Themes</Heading>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View style={{backgroundColor: '#111111', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
@@ -77,7 +77,7 @@ const Themes = (props) => {
           {ensThemes}
         </View>
       </ScrollView>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -85,12 +85,17 @@ const width = Dimensions.get('window').width; //full width
 const styles = StyleSheet.create({
   container: {
     width: width,
-    backgroundColor: '#000000',
-    
+    backgroundColor: '#000000',    
     borderRadius: 0,
     margin: 0,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
   searchBar: {
     width: width - 20,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, View, RefreshControl, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, View, RefreshControl, Dimensions, ImageBackground } from 'react-native';
 import { useIsFocused } from "@react-navigation/native";
 import ActionButton from 'react-native-action-button';
 import Heading from './Forum/Heading'
@@ -83,8 +83,7 @@ const Replies = (props) => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'black' }}>
-      <Heading> {titreTheme}</Heading>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >  <Heading> {titreTheme}</Heading>
       <View style={styles.discussion} >
 
      
@@ -101,7 +100,7 @@ const Replies = (props) => {
         </View>
       </ScrollView>
       <ActionButton
-        buttonColor="teal"
+        buttonColor="#e7ab3c"
         onPress={() => {
           props.navigation.navigate(
             'NewReply',
@@ -114,7 +113,7 @@ const Replies = (props) => {
             })
         }}
       />
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -126,13 +125,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  discussion:{
-    borderWidth:  3,
-    borderTopWidth:  5,
-    borderBottomWidth:  5,
-    borderRadius:10,
-    backgroundColor: 'teal',
-    borderColor:  'teal',
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  
+  discussion: {
+    borderWidth: 3,
+    borderTopWidth: 5,
+    borderBottomWidth: 5,
+    borderRadius: 10,
+    backgroundColor: "#e7ab3c",
+    borderColor: "#e7ab3c",
     borderRadius: 10,
     marginVertical: 5,
   }

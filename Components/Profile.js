@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   StyleSheet,
-  Text, TextInput,
+  Text, 
   View, ScrollView, Dimensions, RefreshControl,
   Image,
   Button,
+  ImageBackground,
   TouchableOpacity,
   Alert
 } from 'react-native';
@@ -14,7 +15,6 @@ import axios from 'axios';
 import Heading from './Forum/Heading'
 
 
-const width = Dimensions.get('window').width; //full width
 function Profile(props) {
   const isFocused = useIsFocused();
   //pour rafraichir la page : 
@@ -46,12 +46,11 @@ function Profile(props) {
   }, [isFocused, refreshing]);
 
   return (
-    <View style={styles.container}>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <Heading> Profile</Heading>
-      <ScrollView style={{ width: "100%" }}>
+      <ScrollView>
 
-        <View style={styles.container}>
-          {/* <Image style={styles.image} source={profil.imagePath} /> */}
+        <View style={styles.profileContainer}>
           <Image style={styles.image} source={{ uri: profil.imagePath }} />
           <View style={styles.inputView}>
             <Text style={styles.TextView}> Prénom : {profil.firstName}</Text>
@@ -88,39 +87,46 @@ function Profile(props) {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </ImageBackground>
   );
 }
 
+const width = Dimensions.get('window').width; //full width
+const height = Dimensions.get('window').height; //full width
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column"
   },
 
   image: {
     width: 100,
     height: 100,
-    marginVertical: 20,
+    borderRadius: 50,
+    marginVertical: 25,
   },
-
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
   inputView: {
-    backgroundColor: "#FACB76",
+    backgroundColor: "#e7ab3c",
     borderRadius: 10,
     borderColor: "black",
     borderWidth: 2,
     width: width - 40,
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 25,
     alignItems: "center",
   },
 
-  TextInput: {
-    //height: 50,
+  profileContainer: {
+    height: height,
+    borderColor: "black",
     flex: 1,
-    padding: 10,
-    marginLeft: 20,
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   TextView: {
     borderRadius: 10,
@@ -139,7 +145,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 20,
+    marginVertical: 40,
     backgroundColor: "#e7ab3c",
   },
 });

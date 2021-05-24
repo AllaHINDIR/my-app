@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TextInput, ScrollView,ImageBackground } from 'react-native';
 import {Divider, Button } from 'react-native-elements';
 import { showMessage } from "react-native-flash-message";
 import Display from 'react-native-display';
@@ -69,7 +69,7 @@ const NewDiscussion = (props) => {
 
 
     return (
-      <View style={styles.container}>
+      <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
         <View style={styles.discussion}>
           <Text style={styles.titreTheme}>{titreTheme}</Text>
           <Display enable={Enable}>
@@ -127,50 +127,53 @@ const NewDiscussion = (props) => {
             </Display>
           </View>
         </View>
-      </View>
+      </ImageBackground>
     );
 }
 
 const width = Dimensions.get('window').width; //full width
 const styles = StyleSheet.create({
-    container: {
-        width: width,
-        flex:1,
-        backgroundColor: '#111111',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    discussion: {
-        height:400,
-        padding: 10,
-        width: width - 10,
-        backgroundColor: "#ffffff",
-        borderColor: "#000000",
-        borderRadius: 10,
-        marginVertical: 5,
-    },
-    titleZone:{
-        height:50,
-        borderWidth:2,
-        borderRadius:8,
-        padding: 10
-   
-        
-    },
-    DescriptionZone:{
-        height:150,
-        borderWidth:2,
-        borderRadius:8,
-        textAlignVertical:"top",
-        padding: 10
-        
-    },
-    titreTheme:{
-        fontSize:30,
-        alignSelf:'center',
-        marginBottom:30,
+  discussion: {
+    height: 400,
+    padding: 10,
+    width: width - 10,
+    backgroundColor: "rgba(255,255,255,0.5)",
+    borderColor: "#000000",
+    borderRadius: 10,
+    marginVertical: 5,
+  },
+  titleZone: {
+    height: 50,
+    borderWidth: 2,
+    borderRadius: 8,
+    padding: 10,
+    backgroundColor: "rgba(255,255,255,0.9)",
+  },
 
-    }
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  DescriptionZone: {
+    height: 150,
+    textAlignVertical: "top",
+    borderRadius: 8,
+    borderWidth: 2,
+    borderRadius: 8,
+    padding: 10,
+    backgroundColor: "rgba(255,255,255,0.9)",
+
+  },
+  ScrollViewDescription: {
+    height: 80,
+  },
+  titreTheme: {
+    fontSize: 30,
+    alignSelf: 'center',
+    marginBottom: 30,
+    
+  }
 
 });
 export default NewDiscussion

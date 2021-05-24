@@ -54,5 +54,4 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   }
 })
-
 export default Maps;
