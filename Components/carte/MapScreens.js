@@ -23,11 +23,12 @@ function MapScreens(props) {
     );
   }
 
-  function MembersDataScreen({navigation}){
+  function MembersDataScreen({navigation ,route}){
     
+    const InformationsMembre = route.params.membre;
 
    return(
-       <MembersData navigation={navigation}  />
+       <MembersData navigation={navigation} membre={InformationsMembre} />
    );
  }
 

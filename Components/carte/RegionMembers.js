@@ -26,7 +26,7 @@ function RegionMembers(props) {
   for (let i = 0; i < listMembre.length; i++) {
     ensMembres.push(
       <DataTable.Row key={listMembre[i]._id} onPress={()=>{
-        props.navigation.navigate("MembersData")
+        props.navigation.navigate("MembersData",{membre:listMembre[i]})
       }}>
         <DataTable.Cell >{listMembre[i].indicatif}</DataTable.Cell>
         <DataTable.Cell>{listMembre[i].firstName}</DataTable.Cell>

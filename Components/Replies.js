@@ -83,7 +83,8 @@ const Replies = (props) => {
   }
 
   return (
-    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >  <Heading> {titreTheme}</Heading>
+    <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >  
+    <Heading> {titreTheme}</Heading>
       <View style={styles.discussion} >
 
      
