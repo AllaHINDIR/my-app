@@ -77,7 +77,7 @@ function Discussions(props) {
         <Heading> {titreTheme}</Heading>
 
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-        <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+        <View style={{ backgroundColor: '#111111', flex: 1, justifyContent: 'center', alignItems: 'center', paddingBottom: 10 }}>
           {/* <SBar /> */}
           <Searchbar
             style={styles.searchBar}
