@@ -28,9 +28,9 @@ function RegionMembers(props) {
       <DataTable.Row key={listMembre[i]._id} onPress={() => {
         props.navigation.navigate("MembersData", { membre: listMembre[i] })
       }}>
-        <DataTable.Cell><Text style={{color:"red"}}>{listMembre[i].indicatif} </Text></DataTable.Cell>
-        <DataTable.Cell>{listMembre[i].firstName}</DataTable.Cell>
-        <DataTable.Cell>{listMembre[i].lastName}</DataTable.Cell>
+        <DataTable.Cell><Text style={styles.tableRow}>{listMembre[i].indicatif} </Text></DataTable.Cell>
+        <DataTable.Cell><Text style={styles.tableRow}>{listMembre[i].firstName}</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={styles.tableRow}>{listMembre[i].lastName}</Text></DataTable.Cell>
       </DataTable.Row>
     );
   }
@@ -42,9 +42,9 @@ function RegionMembers(props) {
       <View style={{ flex: 1 }}>
         <DataTable style={styles.table}>
           <DataTable.Header>
-            <DataTable.Title>Indicatif</DataTable.Title>
-            <DataTable.Title>Prénom</DataTable.Title>
-            <DataTable.Title>Nom</DataTable.Title>
+            <DataTable.Title><Text style={styles.tableHeader}>Indicatif</Text></DataTable.Title>
+            <DataTable.Title><Text style={styles.tableHeader}>Prénom</Text></DataTable.Title>
+            <DataTable.Title><Text style={styles.tableHeader}>Nom</Text></DataTable.Title>
           </DataTable.Header>
           <ScrollView>
             {ensMembres}
@@ -65,6 +65,15 @@ const styles = StyleSheet.create({
     width: width - 40,
     borderRadius: 15,
     backgroundColor: "white"
+  },
+  tableRow: {
+    fontSize: 14,
+    color: "gray"
+  },
+  tableHeader: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "black"
   },
 
   backgroundImage: {

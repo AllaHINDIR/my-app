@@ -45,11 +45,14 @@ const styles = StyleSheet.create({
   baseText: {
     fontSize: 16,
     color: '#ffffff',
-    textAlign: 'center', // centre le texte horizontalement
-    //justifyContent: 'center' ,
-    //alignItems: 'center',
-    flex: 1, // container takes the same area as the parent
+    textAlign: 'center', 
+    backgroundColor: "rgba(0,0,0,0.75)",
+    flex: 1,
+    //width: width -40,
+    width: width ,
     marginTop: 100,
+    //marginBottom: 10,
+    //borderRadius: 20,
     padding: 5,
   },
   titleText: {
