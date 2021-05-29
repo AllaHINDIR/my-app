@@ -60,7 +60,7 @@ const Themes = (props) => {
     <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <Heading>Themes</Heading>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-        <View style={{backgroundColor: '#111111', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+        <View style={{ backgroundColor: '#111111', justifyContent: 'center', alignItems: 'center', paddingBottom: 10 }}>
           <Searchbar
             style={styles.searchBar}
             inputStyle={styles.input}
@@ -68,9 +68,7 @@ const Themes = (props) => {
             placeholder="Chercher ici..."
             placeholderTextColor="#ffffff"
             onChangeText={onChangeSearch}
-
             value={searchQuery}
-
           />
         </View>
         <View style={styles.container}>
@@ -85,7 +83,7 @@ const width = Dimensions.get('window').width; //full width
 const styles = StyleSheet.create({
   container: {
     width: width,
-    backgroundColor: '#000000',    
+    backgroundColor: '#000000',
     borderRadius: 0,
     margin: 0,
     justifyContent: 'center',
