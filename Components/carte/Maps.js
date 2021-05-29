@@ -38,7 +38,7 @@ function Maps(props) {
       {listVilles.map((marker) => (
         <Marker
         onPress = {() => {
-          props.navigation.navigate("RegionMembers",{idRegion:marker._id})
+          props.navigation.navigate("RegionMembers",{idRegion:marker._id, regionName: marker.nom})
         }}
           key={marker._id} 
           coordinate={{longitude: marker.longitude, latitude: marker.latitude}}>

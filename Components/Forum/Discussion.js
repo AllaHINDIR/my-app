@@ -73,7 +73,7 @@ const Discussion = (props) => {
         <Text style={styles.baseText}> {discussion.message}</Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-        <Display enable={enable}>
+        <Display enable={enable && EnableReplay} >
           <View>
             <Button
               buttonStyle={{ marginHorizontal: 2 }}
@@ -100,7 +100,7 @@ const Discussion = (props) => {
             />
           </View>
         </Display>
-        <Display enable={enable}>
+        <Display enable={enable && EnableReplay}>
           <View>
             <Button
               buttonStyle={{ marginHorizontal: 2 }}

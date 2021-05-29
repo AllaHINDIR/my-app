@@ -8,7 +8,7 @@ import Acceuil from './Components/Acceuil'
 import Login from './Components/Login'
 
 
-const url="http://10.72.127.9:5000/";
+const url="http://10.72.176.37:5000/";
 
 
 function AcceuilScreen({ navigation }) {

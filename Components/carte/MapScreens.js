@@ -16,10 +16,11 @@ function MapScreens(props) {
   }
 
   function RegionMembersScreen({navigation, route}){
-     const idRegion = route.params.idRegion;
+    const idRegion = route.params.idRegion;
+    const regionName = route.params.regionName;
 
     return(
-        <RegionMembers navigation={navigation} idRegion={idRegion} url={props.url} />
+        <RegionMembers navigation={navigation} idRegion={idRegion} regionName={regionName} url={props.url} />
     );
   }
 

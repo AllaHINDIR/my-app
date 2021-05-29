@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import {View, ScrollView,Image} from 'react-native';
+import {View, ScrollView,Text,StyleSheet} from 'react-native';
 import {DataTable} from 'react-native-paper';
-import { Text } from 'native-base';
+import Heading from '../Forum/Heading';
 
 function RegionMembers(props) {
   const [listMembre, setMembres] = React.useState({});
@@ -37,6 +37,7 @@ function RegionMembers(props) {
 
   return (
     <View>
+    <Heading ><Text>{props.regionName}</Text></Heading>
     
     <ScrollView>
     
@@ -46,7 +47,6 @@ function RegionMembers(props) {
           <DataTable.Title>Prènom</DataTable.Title>
           <DataTable.Title>Nom</DataTable.Title>
         </DataTable.Header>
-
         {ensMembres}
       </DataTable>
     </ScrollView>
@@ -56,3 +56,4 @@ function RegionMembers(props) {
 }
 
 export default RegionMembers;
+
