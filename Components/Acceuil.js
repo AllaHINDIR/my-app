@@ -6,42 +6,59 @@ import {
     View,
     Image,
     TouchableOpacity,
+    ImageBackground
 } from "react-native";
 
 const Acceuil = (props) => {
 
     return (
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={{
+          uri: 'https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg',
+        }}
+      >
         <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/logo_arram.jpg")} />
-            <Image src="" />
-            <StatusBar style="auto" />
-            <View style={styles.description} >
-                <Text style={styles.textDescription} >
-                    Cette Application est réservée seulement pour les membres de l'association ARRAM !
+          <Image
+            style={styles.image}
+            source={require('../assets/logo_arram.png')}
+          />
 
-                </Text>
-            </View>
+          <StatusBar style="auto" />
+          <View style={styles.description}>
+            <Text style={styles.textDescription}>
+              Cette Application est réservée seulement pour les membres de
+              l'association ARRAM !
+            </Text>
+          </View>
 
-            <TouchableOpacity style={styles.loginBtn}
-                onPress={() => {
-                    props.navigation.replace('Login');
-                }}>
-                <Text style={styles.loginText}>Continuer</Text>
-            </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={() => {
+              props.navigation.replace('Login');
+            }}
+          >
+            <Text style={styles.loginText}>Continuer</Text>
+          </TouchableOpacity>
         </View>
+      </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#fff",
+        
+        backgroundColor: "rgba(255,255,255,0.5)",
         alignItems: "center",
         justifyContent: "center",
+        borderRadius:20,
+        marginHorizontal:30,
+        paddingVertical:20,
     },
 
     image: {
         marginBottom: 40,
+        
     },
 
     loginBtn: {
@@ -61,7 +78,14 @@ const styles = StyleSheet.create({
     textDescription:{
         alignSelf:"center",
         textAlign:"center",
-    }
+        fontSize:16,
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        
+      },
 });
 
 export default Acceuil;

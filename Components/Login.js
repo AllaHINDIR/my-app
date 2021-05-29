@@ -1,10 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, version } from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableOpacity,
+    ImageBackground,
+    Image
 } from "react-native";
 
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -48,66 +50,84 @@ const Login = (props) => {
 
     
     return (
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <View style={styles.inputView}>
-          <Input
-            placeholder="Indicatif *"
-            leftIcon={{type: 'font-awesome', name: 'user-circle'}}
-            style={styles.TextInput}
-            onChangeText={(email) => setIndicatif(email)}
-            
-          />
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={{
+          uri: 'https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg',
+        }}
+      >
+        <View style={styles.container}>
+          <View style={styles.container2}>
+            <Image
+              style={styles.image}
+              source={require('../assets/royaume.png')}
+            />
+            <Text style={styles.arabicTitle}>
+              الجمعية الملكية لهواة الاجهزة اللاسلكية بالمغرب
+            </Text>
+            <Text style={styles.arabicTitle}>
+              Association Royale des Radio-Amateurs du Maroc
+            </Text>
+          </View>
+          <StatusBar style="auto" />
+          <View style={styles.inputView}>
+            <Input
+              placeholder="Indicatif *"
+              leftIcon={{type: 'font-awesome', name: 'user-circle'}}
+              style={styles.TextInput}
+              onChangeText={(email) => setIndicatif(email)}
+            />
 
-          {/* <TextInput
+            {/* <TextInput
             style={styles.TextInput}
             placeholder="Indicatif *"
             placeholderTextColor="gray"
             onChangeText={(email) => setIndicatif(email)}
           /> */}
-        </View>
-        <View style={styles.inputView}>
-          <Input
-            placeholder="Mot de passe *"
-            leftIcon={{type: 'font-awesome', name: 'unlock-alt'}}
-            style={styles.TextInput}
-            secureTextEntry={true}
-            onChangeText={(password) => setPassword(password)}
-          />
+          </View>
+          <View style={styles.inputView}>
+            <Input
+              placeholder="Mot de passe *"
+              leftIcon={{type: 'font-awesome', name: 'unlock-alt'}}
+              style={styles.TextInput}
+              secureTextEntry={true}
+              onChangeText={(password) => setPassword(password)}
+            />
 
-          {/* <TextInput
+            {/* <TextInput
             style={styles.TextInput}
             placeholder="Mot de passe *"
             placeholderTextColor="gray"
             secureTextEntry={true}
             onChangeText={(password) => setPassword(password)}
           /> */}
-        </View>
+          </View>
 
-        {/* <TouchableOpacity>
+          {/* <TouchableOpacity>
           <Text style={styles.forgot_button}>Forgot Password?</Text>
         </TouchableOpacity> */}
 
-       
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={ () => {
-                 login(indicatif, password)
-          }}
-        >
-          <Text style={styles.loginText}>LOGIN</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={() => {
+              login(indicatif, password);
+            }}
+          >
+            <Text style={styles.loginText}>LOGIN</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "rgba(255,255,255,0.5)",
         alignItems: "center",
         justifyContent: "center",
-        
+        marginHorizontal:30,
+        paddingVertical:20,
+        borderRadius:20,
     },
 
 
@@ -144,6 +164,27 @@ const styles = StyleSheet.create({
     loginText:{
         color:"black",
     },
+    backgroundImage: {
+      flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center",
+      
+    },
+    image: {
+      width:100,
+      height:100,
+      marginBottom:10,
+  },
+  arabicTitle:{
+    color:"black",
+    fontSize:16,
+    textAlign:"center",
+  },
+  container2: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom:50,
+},
 });
 
 export default Login;
