@@ -6,7 +6,8 @@ import {
     View,
     TouchableOpacity,
     ImageBackground,
-    Image
+    Image,
+    Alert
 } from "react-native";
 
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -42,7 +43,18 @@ const Login = (props) => {
                         loginSuccess = false
                     }
             }).catch(err => {
-                console.log(err)     
+                console.log(err.response.data.message);
+                Alert.alert(
+                  "Erreur",
+                  err.response.data.message,
+                  [
+                    {
+                      text:"Ok",
+                      onPress:()=>console.log("coucou"),
+                      style:"cancel"
+                    }
+                  ]
+                )
             });
     }
 
