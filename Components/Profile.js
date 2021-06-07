@@ -45,6 +45,7 @@ function Profile(props) {
       })
   }, [isFocused, refreshing]);
 
+  console.log(profil._regionId)
   return (
     <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <Heading> Profile</Heading>
@@ -53,13 +54,13 @@ function Profile(props) {
         <View style={styles.profileContainer}>
           <Image style={styles.image} source={{ uri: profil.imagePath }} />
           <View style={styles.inputView}>
+            <Text style={styles.TextView}> Indicatif : {profil.indicatif}</Text>
             <Text style={styles.TextView}> Prénom : {profil.firstName}</Text>
             <Text style={styles.TextView}> Nom : {profil.lastName}</Text>
-            <Text style={styles.TextView}> Indicatif : {profil.indicatif}</Text>
-            <Text style={styles.TextView}> CIN : {profil.cin}</Text>
             <Text style={styles.TextView}> Email : {profil.email}</Text>
             <Text style={styles.TextView}> Téléphone : {profil.phone}</Text>
-            <Text style={styles.TextView}> Adresse : {profil.adresse}</Text>
+            <Text style={styles.TextView}> QTH : </Text>
+            <Text style={styles.TextView}> Locator : {profil._regionId.nom} </Text>
           </View>
           <TouchableOpacity style={styles.loginBtn}
             onPress={() => {

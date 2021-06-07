@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   StyleSheet,
-  Text, 
+  Text,
   View, ScrollView, Dimensions, RefreshControl,
   Image,
   Button,
@@ -13,27 +13,25 @@ import {
 
 function Membre(props) {
 
-    const membre = props.membre;
-  
+  const membre = props.membre;
 
 
   return (
     <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
-    
+
       <ScrollView>
 
         <View style={styles.membreeContainer}>
           <Image style={styles.image} source={{ uri: membre.imagePath }} />
           <View style={styles.inputView}>
+            <Text style={styles.TextView}> Indicatif : {membre.indicatif}</Text>
             <Text style={styles.TextView}> Prénom : {membre.firstName}</Text>
             <Text style={styles.TextView}> Nom : {membre.lastName}</Text>
-            <Text style={styles.TextView}> Indicatif : {membre.indicatif}</Text>
-            <Text style={styles.TextView}> CIN : {membre.cin}</Text>
             <Text style={styles.TextView}> Email : {membre.email}</Text>
             <Text style={styles.TextView}> Téléphone : {membre.phone}</Text>
-            <Text style={styles.TextView}> Adresse : {membre.adresse}</Text>
+            <Text style={styles.TextView}> QTH : </Text>
+            <Text style={styles.TextView}> Locator : {membre._regionId.nom} </Text>
           </View>
-          
         </View>
       </ScrollView>
     </ImageBackground>

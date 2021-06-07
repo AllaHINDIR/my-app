@@ -23,7 +23,7 @@ function Theme(props) {
               {theme.title}
               {"\n"}
             </Text>
-            <Text> {theme.description} </Text>
+            {/* <Text> {theme.description} </Text> */}
           </Text>
         </ImageBackground>
       </TouchableNativeFeedback>
@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
     textAlign: 'center', 
     backgroundColor: "rgba(0,0,0,0.75)",
     flex: 1,
+    // flexDirection: "column-reverse",
     //width: width -40,
     width: width ,
-    marginTop: 100,
+    marginTop: 140,
     //marginBottom: 10,
     //borderRadius: 20,
     padding: 5,
