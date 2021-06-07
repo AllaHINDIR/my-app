@@ -30,7 +30,6 @@ function Membre(props) {
             <Text style={styles.TextView}> Email : {membre.email}</Text>
             <Text style={styles.TextView}> Téléphone : {membre.phone}</Text>
             <Text style={styles.TextView}> QTH : </Text>
-            <Text style={styles.TextView}> Locator : {membre._regionId.nom} </Text>
           </View>
         </View>
       </ScrollView>

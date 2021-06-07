@@ -2,9 +2,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import {
   StyleSheet,
   Text, 
-  View, ScrollView, Dimensions, RefreshControl,
+  View, ScrollView, Dimensions, 
   Image,
-  Button,
   ImageBackground,
   TouchableOpacity,
   Alert
@@ -45,11 +44,11 @@ function Profile(props) {
       })
   }, [isFocused, refreshing]);
 
-  console.log(profil._regionId)
   return (
     <ImageBackground style={styles.backgroundImage} source={{ uri: "https://i.pinimg.com/originals/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg" }} >
       <Heading> Profile</Heading>
-      <ScrollView>
+      <ScrollView >
+        
 
         <View style={styles.profileContainer}>
           <Image style={styles.image} source={{ uri: profil.imagePath }} />
@@ -60,7 +59,6 @@ function Profile(props) {
             <Text style={styles.TextView}> Email : {profil.email}</Text>
             <Text style={styles.TextView}> Téléphone : {profil.phone}</Text>
             <Text style={styles.TextView}> QTH : </Text>
-            <Text style={styles.TextView}> Locator : {profil._regionId.nom} </Text>
           </View>
           <TouchableOpacity style={styles.loginBtn}
             onPress={() => {

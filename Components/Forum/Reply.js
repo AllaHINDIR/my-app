@@ -108,7 +108,7 @@ const Reply = (props) => {
               onPress={() => {
                 Alert.alert(
                   "Attention",
-                  "Vous etes sur que vous voulez supprimer cette discussion?",
+                  "Vous etes sur que vous voulez supprimer cette réponse?",
                   [{
                     text: 'Oui',
                     onPress: () => {
